@@ -79,7 +79,7 @@ namespace AutoOption
         }
 
         /// <summary>
-        /// Adds new records to Option table if there is new properties in Option class
+        /// Adds new records to the Option table if there is new properties in the Option class
         /// </summary>
         /// <param name="InTableKeys"></param>
         /// <param name="optionRows"></param>
@@ -96,6 +96,11 @@ namespace AutoOption
                 dbQueries.GroupAdd(optionRows);
         }
 
+        /// <summary>
+        /// Deletes extra records from the Option table if not exist in the Option class
+        /// </summary>
+        /// <param name="keys"></param>
+        /// <param name="optionRows"></param>
         private void RemoveIfNotExist(List<string> keys, Dictionary<string, string> optionRows)
         {
             // Get all keys in Table if not exist in Option class

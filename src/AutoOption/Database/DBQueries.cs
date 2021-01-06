@@ -1,5 +1,4 @@
 ﻿using AutoOption.Database.Interface;
-using AutoOption.Database.MSSql;
 using System;
 using System.Collections.Generic;
 using System.Text;
