@@ -1,0 +1,15 @@
+﻿@model List<AutoOption.OptionEntity>
+
+<form method="post">
+    @foreach (var item in Model)
+    {
+        <div class="form-group">
+            <label>@item.Display</label>
+            <input value="@item.Value" name="@item.Key" type="text" class="form-control" />
+        </div>
+    }
+    @Html.AntiForgeryToken()
+    <input type="submit" name="submit" value="Update" class="btn btn-success" />
+</form>
+
+

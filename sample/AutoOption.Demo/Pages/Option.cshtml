@@ -1,15 +1,5 @@
 ﻿@page
-@model AutoOption.Demo.Pages.OptionModel
-@{
-}
+@addTagHelper *, AutoOption.Pages
+@model OptionModel
 
-<form method="post">
-    @foreach (var item in Model.Options)
-    {
-        <div class="form-group">
-            <label asp-for="@item.Display">@item.Display</label>
-            <input asp-for="@item.Value" name="@item.Key" class="form-control" />
-        </div>
-    }
-    <input type="submit" name="submit" value="Update" class="btn btn-success" />
-</form>
+<vc:option inputs="@Model.Inputs"></vc:option>

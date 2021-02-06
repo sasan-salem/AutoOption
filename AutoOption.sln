@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sample", "sample", "{F5E967
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoOption.Demo", "sample\AutoOption.Demo\AutoOption.Demo.csproj", "{D3D23148-9888-428D-8BC0-0AE2F3C933FB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoOption.Pages", "AutoOption.Pages\AutoOption.Pages.csproj", "{0CF03DC2-7FAE-4C64-BC10-1B6BC02B6103}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{D3D23148-9888-428D-8BC0-0AE2F3C933FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3D23148-9888-428D-8BC0-0AE2F3C933FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D3D23148-9888-428D-8BC0-0AE2F3C933FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CF03DC2-7FAE-4C64-BC10-1B6BC02B6103}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CF03DC2-7FAE-4C64-BC10-1B6BC02B6103}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CF03DC2-7FAE-4C64-BC10-1B6BC02B6103}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CF03DC2-7FAE-4C64-BC10-1B6BC02B6103}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -41,6 +47,7 @@ Global
 		{341E7A5A-CB66-406B-8281-8715FD738A04} = {4CE6A431-1B5B-4A7A-82F7-224A705F09AA}
 		{AAA36ABF-3193-4E11-99C0-585730EAFE3F} = {2ACE758A-3A66-460E-AD79-0A83ED341359}
 		{D3D23148-9888-428D-8BC0-0AE2F3C933FB} = {F5E9671A-7D17-4FDB-81A8-1A38F233BFCB}
+		{0CF03DC2-7FAE-4C64-BC10-1B6BC02B6103} = {4CE6A431-1B5B-4A7A-82F7-224A705F09AA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {10E63672-EFB9-4186-8B47-641EE1448075}
