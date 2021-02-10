@@ -37,10 +37,9 @@ namespace AutoOption.Tests
         [Test]
         [TestCaseSource("_withNewProperties")]
         public void Register_TableExistAndOptionHasNewProperties_AddNewPeroperties(
-            List<string> InTableKeys, 
-            Dictionary<string, string> GoesToInsert)
+            List<string> InTableKeys,
+            List<OptionEntity> GoesToInsert)
         {
-
             dBQueriesMock.Setup(d => d.IsTableExist()).Returns(true);
             dBQueriesMock.Setup(d => d.GetOneColumn("[Key]")).Returns(InTableKeys);
 
@@ -68,7 +67,7 @@ namespace AutoOption.Tests
 
             dBQueriesMock.Verify(d => d.GroupDeleteByKeys(GoesToDelete, "[Key]"));
 
-            dBQueriesMock.Verify(d => d.GroupAdd(It.IsAny<Dictionary<string, string>>()), Times.Never);
+            dBQueriesMock.Verify(d => d.GroupAdd(It.IsAny<List<OptionEntity>>()), Times.Never);
         }
 
         [Test]
@@ -76,7 +75,7 @@ namespace AutoOption.Tests
         public void Register_TableExistAndOptionHasNewAndFewerProperties_AddNewAndDeleteFewerPeroperties(
             List<string> InTableKeys,
             List<string> GoesToDelete,
-            Dictionary<string, string> GoesToInsert)
+            List<OptionEntity> GoesToInsert)
         {
 
             dBQueriesMock.Setup(d => d.IsTableExist()).Returns(true);
@@ -96,15 +95,19 @@ namespace AutoOption.Tests
         {
             new object[] {
                 new List<string>() { "Third", "First" },
-                new Dictionary<string, string>() {{ "Second", "Second Display" }}
+                new List<OptionEntity>()
+                {
+                    new OptionEntity(){ Key = "Second", Display = "Second Display", Type = "String" }
+                }
             },
             new object[] {
                 new List<string>() { "Third" },
-                new Dictionary<string, string>() {
-                    { "First", "First Display" },
-                    { "Second", "Second Display" }
+                new List<OptionEntity>()
+                {
+                    new OptionEntity(){ Key = "First", Display = "First Display", Type = "Int32" },
+                    new OptionEntity(){ Key = "Second", Display = "Second Display", Type = "String" }
                 }
-            },
+            }
         };
 
         public static readonly object[] _withFewerProperties =
@@ -120,16 +123,19 @@ namespace AutoOption.Tests
             new object[] {
                 new List<string>() { "First", "Fourth", "Second" },
                 new List<string>() { "Fourth" },
-                new Dictionary<string, string>() {{ "Third", "Third Display" } }
+                new List<OptionEntity>()
+                {
+                    new OptionEntity(){ Key = "Third", Display = "Third Display", Type = "Boolean" }
+                }
             }
         };
 
         private readonly List<OptionEntity> OptionEntities =
             new List<OptionEntity>()
             {
-                new OptionEntity(){Key ="First", Display="First Display",Value="1" },
-                new OptionEntity(){Key ="Second", Display="Second Display",Value="s" },
-                new OptionEntity(){Key ="Third", Display="Third Display",Value="true" }
+                new OptionEntity() { Key = "First", Display = "First Display" , Value= "1", Type = "Int32" },
+                new OptionEntity() { Key = "Second", Display = "Second Display", Value="s", Type = "String" },
+                new OptionEntity() { Key = "Third", Display = "Third Display", Value="true", Type = "Boolean" }
             };
 
         class Option

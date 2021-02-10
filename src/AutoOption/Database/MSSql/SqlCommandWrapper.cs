@@ -36,7 +36,8 @@ namespace AutoOption.Database.MSSql
             using SqlDataReader reader = command.ExecuteReader();
             Type type = typeof(T);
 
-            PropertyInfo[] peroperties = type.GetProperties();
+            PropertyInfo[] peroperties = type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+
             List<T> entities = new List<T>();
 
             var relation = GetRelationPropertyColumn(peroperties, reader);

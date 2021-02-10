@@ -16,13 +16,13 @@ namespace AutoOption.Database
             baseQuery = new BaseQuery(dbWrapper);
         }
 
-        public void GroupAdd(Dictionary<string, string> rows)
+        public void GroupAdd(List<OptionEntity> rows)
         {
             StringBuilder query = new StringBuilder();
-            query.Append($"INSERT INTO {tableName} ([Key], Display) values");
+            query.Append($"INSERT INTO {tableName} ([Key], Display, Type) values");
             foreach (var item in rows)
             {
-                query.Append($" ('{item.Key}', '{item.Value}'),");
+                query.Append($" ('{item.Key}', '{item.Display}', '{item.Type}'),");
             }
             query.Length--;
 
@@ -55,7 +55,8 @@ namespace AutoOption.Database
                 (
 	                [Key] NVARCHAR(100) NOT NULL PRIMARY KEY,
 	                Value NVARCHAR(255),
-	                Display VARCHAR(255) NOT NULL,
+	                Display NVARCHAR(255) NOT NULL,
+                    Type NVARCHAR(255) NOT NULL
                 );
             ";
 

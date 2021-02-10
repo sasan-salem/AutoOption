@@ -14,11 +14,12 @@ namespace AutoOption.Tests
         public void ExtractKeysFromType_WhenCalled_DoYourWorkWell()
         {
             var result = type.ExtractKeysFromType();
-            Assert.That(result, Is.EqualTo(new Dictionary<string, string>()
+
+            Assert.That(result, Is.EqualTo(new List<OptionEntity>()
             {
-                { "First",  "First Display"},
-                { "Second",  "Second Display"},
-                { "Third",  "Third Display"}
+                new OptionEntity(){ Key = "First", Display = "First Display", Type = "Int32" },
+                new OptionEntity(){ Key = "Second", Display = "Second Display", Type = "String" },
+                new OptionEntity(){ Key = "Third", Display = "Third Display", Type = "Boolean" }
             }));
         }
 

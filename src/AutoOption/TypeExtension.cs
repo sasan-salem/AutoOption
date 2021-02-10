@@ -8,13 +8,18 @@ namespace AutoOption
 {
     internal static class TypeExtension
     {
-        internal static Dictionary<string, string> ExtractKeysFromType(this Type type)
+        internal static List<OptionEntity> ExtractKeysFromType(this Type type)
         {
-            var optionRows = new Dictionary<string, string>();
+            var optionRows = new List<OptionEntity>();
 
             foreach (var item in type.GetProperties())
             {
-                optionRows.Add(item.Name, item.GetDisplay());
+                optionRows.Add(new OptionEntity()
+                {
+                    Key = item.Name,
+                    Display = item.GetDisplay(),
+                    Type = item.PropertyType.Name
+                });
             }
             return optionRows;
         }

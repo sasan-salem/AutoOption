@@ -83,28 +83,40 @@ namespace AutoOption
         /// </summary>
         /// <param name="InTableKeys"></param>
         /// <param name="optionRows"></param>
-        private void AddNewItems(List<string> InTableKeys, Dictionary<string, string> optionRows)
+        private void AddNewItems(List<string> InTableKeys, List<OptionEntity> optionRows)
         {
+            // for Initial Creation
+            if (InTableKeys.Count == 0)
+            {
+                dbQueries.GroupAdd(optionRows);
+                return;
+            }
+
             // Remove options that have already been added
             InTableKeys.ForEach(key =>
-            {
-                if(optionRows.ContainsKey(key))
-                    optionRows.Remove(key);
-            });
+                optionRows.RemoveAll(o => o.Key == key));
 
             if (optionRows.Count != 0)
                 dbQueries.GroupAdd(optionRows);
         }
 
-        /// <summary>
-        /// Deletes extra records from the Option table if not exist in the Option class
-        /// </summary>
-        /// <param name="keys"></param>
-        /// <param name="optionRows"></param>
-        private void RemoveIfNotExist(List<string> keys, Dictionary<string, string> optionRows)
+    /// <summary>
+    /// Deletes extra records from the Option table if not exist in the Option class
+    /// </summary>
+    /// <param name="keys"></param>
+    /// <param name="optionRows"></param>
+    private void RemoveIfNotExist(List<string> keys, List<OptionEntity> optionRows)
         {
-            // Get all keys in Table if not exist in Option class
-            List<string> deletedKeys = keys.FindAll(key => !optionRows.ContainsKey(key));
+            // for Initial Creation
+            if (keys.Count == 0)
+                return;
+
+            var optionEntity = new OptionEntity();
+            List<string> deletedKeys = keys.FindAll(key =>
+            {
+                optionEntity.Key = key;
+                return !optionRows.Contains(optionEntity, OptionEntity.KeyComparer);
+            });
 
             if (deletedKeys.Count != 0)
                 dbQueries.GroupDeleteByKeys(deletedKeys, "[Key]");
