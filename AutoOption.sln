@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sample", "sample", "{F5E967
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoOption.Demo", "sample\AutoOption.Demo\AutoOption.Demo.csproj", "{D3D23148-9888-428D-8BC0-0AE2F3C933FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoOption.Pages", "AutoOption.Pages\AutoOption.Pages.csproj", "{0CF03DC2-7FAE-4C64-BC10-1B6BC02B6103}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoOption.Pages", "src\AutoOption.Pages\AutoOption.Pages.csproj", "{0CF03DC2-7FAE-4C64-BC10-1B6BC02B6103}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

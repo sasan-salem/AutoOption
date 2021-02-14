@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\AutoOption\AutoOption.csproj" />
+    <ProjectReference Include="..\AutoOption\AutoOption.csproj" />
   </ItemGroup>
   
 
