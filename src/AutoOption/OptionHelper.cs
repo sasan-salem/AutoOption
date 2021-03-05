@@ -11,6 +11,7 @@ namespace AutoOption
     {
         private static object option;
         private static HandleOption handleOption;
+        public static Type Type { get; set; }
 
         /// <summary>
         /// Configure your AutoOption
@@ -22,6 +23,7 @@ namespace AutoOption
         /// </remarks>
         public static void Config(Type type, IDatabaseWrapper dbWrapper)
         {
+            Type = type;
             handleOption = new HandleOption(type, dbWrapper);
             handleOption.Register();
         }

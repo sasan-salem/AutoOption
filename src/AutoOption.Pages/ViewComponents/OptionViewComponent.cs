@@ -14,7 +14,7 @@ namespace AutoOption.Pages.ViewComponents
                 Options = OptionHelper.OptionEntities;
             else
             {
-                Options = PageTools.UpdateWithPostedInputs(Inputs);
+                Options = PageTools.ExtractOption(Inputs);
                 OptionHelper.OptionEntities = Options;
             }
 

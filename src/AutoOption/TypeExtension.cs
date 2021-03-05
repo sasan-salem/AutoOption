@@ -18,7 +18,7 @@ namespace AutoOption
                 {
                     Key = item.Name,
                     Display = item.GetDisplay(),
-                    Type = item.PropertyType.Name
+                    Type = item.PropertyType.IsEnum ? "Enum" : item.PropertyType.Name
                 });
             }
             return optionRows;
