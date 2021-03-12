@@ -19,10 +19,10 @@ namespace AutoOption.Database
         public void GroupAdd(List<OptionEntity> rows)
         {
             StringBuilder query = new StringBuilder();
-            query.Append($"INSERT INTO {tableName} ([Key], Display, Type) values");
+            query.Append($"INSERT INTO {tableName} ([Key], Display, Type, Value) values");
             foreach (var item in rows)
             {
-                query.Append($" ('{item.Key}', '{item.Display}', '{item.Type}'),");
+                query.Append($" ('{item.Key}', '{item.Display}', '{item.Type}', '{item.DefaultValue}'),");
             }
             query.Length--;
 

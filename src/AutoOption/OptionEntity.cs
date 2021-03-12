@@ -35,6 +35,16 @@ namespace AutoOption
                 Type.GetHashCode();
         }
 
+        internal string DefaultValue =>
+            Type switch
+            {
+                "Int16" or "UInt16" or "Int32" or "UInt32" or "Int64" or "UInt64"
+                 or "Single" or "Double" or "Decimal" => "0",
+                "String" => "",
+                "Boolean" => "false",
+                _ => ""
+            };
+
         private sealed class OptionEntityComparer : IEqualityComparer<OptionEntity>
         {
             public bool Equals(OptionEntity x, OptionEntity y)

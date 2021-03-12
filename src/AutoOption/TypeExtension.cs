@@ -36,7 +36,15 @@ namespace AutoOption
         internal static object Convert(this PropertyInfo propertyInfo, string value) =>
             Type.GetTypeCode(propertyInfo.PropertyType) switch
             {
+                TypeCode.Int16 => string.IsNullOrEmpty(value) ? 0 : short.Parse(value),
+                TypeCode.UInt16 => string.IsNullOrEmpty(value) ? 0 : ushort.Parse(value),
                 TypeCode.Int32 => string.IsNullOrEmpty(value) ? 0 : int.Parse(value),
+                TypeCode.UInt32 => string.IsNullOrEmpty(value) ? 0 : uint.Parse(value),
+                TypeCode.Int64 => string.IsNullOrEmpty(value) ? 0 : long.Parse(value),
+                TypeCode.UInt64 => string.IsNullOrEmpty(value) ? 0 : ulong.Parse(value),
+                TypeCode.Single => string.IsNullOrEmpty(value) ? 0 : float.Parse(value),
+                TypeCode.Double => string.IsNullOrEmpty(value) ? 0 : double.Parse(value),
+                TypeCode.Decimal => string.IsNullOrEmpty(value) ? 0 : decimal.Parse(value),
                 TypeCode.Boolean => string.IsNullOrEmpty(value) ? false : bool.Parse(value),
                 _ => value
             };

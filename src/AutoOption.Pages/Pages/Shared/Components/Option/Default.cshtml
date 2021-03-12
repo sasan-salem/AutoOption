@@ -29,7 +29,15 @@
                             </div>
                         }
                         break;
-                    case "Int32": <input value="@item.Value" name="@item.Key" type="number" class="form-control" />break;
+                    case "Int16":
+                    case "UInt16":
+                    case "Int32":
+                    case "UInt32":
+                    case "Int64":
+                    case "UInt64":
+                    case "Single":
+                    case "Double":
+                    case "Decimal": <input value="@item.Value" name="@item.Key" type="number" class="form-control" />break;
                     case "String": <input value="@item.Value" name="@item.Key" type="text" class="form-control" />break;
                     case "Enum": <select name="@item.Key" class="form-control" asp-items="@AutoOption.Pages.PageTools.CreateEnum(item, Model)"></select>break;
                 }
