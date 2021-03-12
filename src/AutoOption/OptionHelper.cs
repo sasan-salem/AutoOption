@@ -1,6 +1,7 @@
 ﻿using AutoOption.Database.Interface;
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 
 namespace AutoOption
 {
@@ -38,6 +39,23 @@ namespace AutoOption
             if (option == null)
                 option = handleOption.GetOption<T>();
             return (T)option;
+        }
+
+        /// <summary>
+        /// Changes the Options in the middle of code
+        /// </summary>
+        public static void Set<T>(Expression<Func<T>> expr, T value)
+        {
+            string key = ((MemberExpression)expr.Body).Member.Name;
+
+            handleOption.UpdateEntities(new List<OptionEntity>()
+            {
+                new OptionEntity()
+                {
+                    Key = key,
+                    Value = value.ToString()
+                }
+            });
         }
 
         /// <summary>
