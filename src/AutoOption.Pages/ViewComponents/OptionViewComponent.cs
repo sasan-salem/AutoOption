@@ -11,11 +11,11 @@ namespace AutoOption.Pages.ViewComponents
             List<OptionEntity> Options;
 
             if(Inputs == null)
-                Options = OptionHelper.OptionEntities;
+                Options = OptionHelper.ReadEntities();
             else
             {
                 Options = PageTools.ExtractOption(Inputs);
-                OptionHelper.OptionEntities = Options;
+                OptionHelper.UpdateEntities(Options);
             }
 
             return View(Options);

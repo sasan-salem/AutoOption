@@ -33,7 +33,7 @@ namespace AutoOption
         /// </summary>
         /// <typeparam name="T">Option class. the class that stores your options</typeparam>
         /// <returns>Option class. the class that stores your options</returns>
-        public static T GetOption<T>() where T : new()
+        public static T Get<T>() where T : new()
         {
             if (option == null)
                 option = handleOption.GetOption<T>();
@@ -48,13 +48,15 @@ namespace AutoOption
         /// <summary>
         /// Gives access to stored data in option table
         /// </summary>
-        /// <remarks>
-        /// You can get list of OptionRecord for display and set to store data in table
-        /// </remarks>
-        public static List<OptionEntity> OptionEntities
+        public static List<OptionEntity> ReadEntities() => handleOption.ReadEntities();
+
+        /// <summary>
+        /// You can update entites in option table
+        /// </summary>
+        public static void UpdateEntities(List<OptionEntity> OptionEntities)
         {
-            get => handleOption.ReadEntities();
-            set => handleOption.UpdateEntities(value);
+            handleOption.UpdateEntities(OptionEntities);
+            ResetOption();
         }
     }
 }

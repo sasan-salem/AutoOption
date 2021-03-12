@@ -17,7 +17,7 @@ namespace AutoOption.Pages
         /// </summary>
         public static List<OptionEntity> ExtractOption(IFormCollection Inputs)
         {
-            var Options = OptionHelper.OptionEntities;
+            var Options = OptionHelper.ReadEntities();
 
             foreach (var item in Options)
             {
