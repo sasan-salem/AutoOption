@@ -98,11 +98,11 @@ namespace AutoOption.Pages
 
         private static string GetDisplay(this FieldInfo propertyInfo)
         {
-            var a = propertyInfo.GetCustomAttributes(typeof(DisplayAttribute), false);
-            if (a.Length == 0)
+            var customAttributes = propertyInfo.GetCustomAttributes(typeof(DisplayAttribute), false);
+            if (customAttributes.Length == 0)
                 return propertyInfo.Name;
             else
-                return a.Cast<DisplayAttribute>().Single().Name;
+                return customAttributes.Cast<DisplayAttribute>().Single().Name;
         }
     }
 }

@@ -19,15 +19,17 @@ namespace AutoOption.Tests
             {
                 new OptionEntity(){ Key = "First", Display = "First Display", Type = "Int32" },
                 new OptionEntity(){ Key = "Second", Display = "Second Display", Type = "String" },
-                new OptionEntity(){ Key = "Third", Display = "Third Display", Type = "Boolean" }
+                new OptionEntity(){ Key = "Third", Display = "Third", Type = "Boolean" }
             }));
         }
 
         [Test]
-        public void GetDisplay_WhenCalled_DoYourWorkWell()
+        [TestCase(0, "First Display")]
+        [TestCase(2, "Third")]
+        public void GetDisplay_WhenCalled_DoYourWorkWell(int prop, string expectedResult)
         {
-            var result = type.GetProperties()[0].GetDisplay();
-            Assert.That(result, Is.EqualTo("First Display"));
+            var result = type.GetProperties()[prop].GetDisplay();
+            Assert.That(result, Is.EqualTo(expectedResult));
         }
 
         [Test]
@@ -48,7 +50,6 @@ namespace AutoOption.Tests
             [Display(Name = "Second Display")]
             public string Second { get; set; }
 
-            [Display(Name = "Third Display")]
             public bool Third { get; set; }
         }
     }

@@ -24,9 +24,14 @@ namespace AutoOption
             return optionRows;
         }
 
-        internal static string GetDisplay(this PropertyInfo propertyInfo) =>
-            propertyInfo.GetCustomAttributes(typeof(DisplayAttribute), false)
-            .Cast<DisplayAttribute>().Single().Name;
+        internal static string GetDisplay(this PropertyInfo propertyInfo)
+        {
+            var customAttributes = propertyInfo.GetCustomAttributes(typeof(DisplayAttribute), false);
+            if (customAttributes.Length == 0)
+                return propertyInfo.Name;
+            else
+                return customAttributes.Cast<DisplayAttribute>().Single().Name;
+        }
 
         internal static object Convert(this PropertyInfo propertyInfo, string value) =>
             Type.GetTypeCode(propertyInfo.PropertyType) switch

@@ -17,7 +17,6 @@ namespace AutoOption.Demo
         [Display(Name = "Allow Comment")]
         public bool AllowComment { get; set; }
 
-        [Display(Name = "Level")]
         public Level Level { get; set; }
     }
 
