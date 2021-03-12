@@ -16,6 +16,7 @@ namespace AutoOption.Pages.ViewComponents
             {
                 Options = PageTools.ExtractOption(Inputs);
                 OptionHelper.UpdateEntities(Options);
+                TempData["Message"] = "Success";
             }
 
             return View(Options);
