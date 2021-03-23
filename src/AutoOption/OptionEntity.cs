@@ -14,27 +14,6 @@ namespace AutoOption
         public string Type { get; set; }
         public static IEqualityComparer<OptionEntity> KeyComparer { get; } = new OptionEntityComparer();
 
-        public override bool Equals(object obj)
-        {
-            if (obj is OptionEntity other &&
-                Key == other.Key &&
-                Value == other.Value &&
-                Display == other.Display &&
-                Type == other.Type)
-                return true;
-            else
-                return false;
-        }
-
-        public override int GetHashCode()
-        {
-            return
-                Key.GetHashCode() ^
-                Value.GetHashCode() ^
-                Display.GetHashCode() ^
-                Type.GetHashCode();
-        }
-
         internal string DefaultValue =>
             Type switch
             {
@@ -44,6 +23,10 @@ namespace AutoOption
                 "Boolean" => "false",
                 _ => ""
             };
+
+        public override bool Equals(object obj) => obj is OptionEntity other && Key == other.Key;
+
+        public override int GetHashCode() => Key.GetHashCode();
 
         private sealed class OptionEntityComparer : IEqualityComparer<OptionEntity>
         {
@@ -55,10 +38,7 @@ namespace AutoOption
                 return x.Key == y.Key;
             }
 
-            public int GetHashCode([DisallowNull] OptionEntity obj)
-            {
-                return obj.Key.GetHashCode();
-            }
+            public int GetHashCode([DisallowNull] OptionEntity obj) => obj.Key.GetHashCode();
         }
     }
 }
