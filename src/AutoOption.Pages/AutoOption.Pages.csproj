@@ -3,6 +3,10 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Version>1.0.2</Version>
+    <Authors>Sasan Salem</Authors>
+    <Company>https://github.com/sasan-salem/AutoOption</Company>
   </PropertyGroup>
 
   <ItemGroup>
