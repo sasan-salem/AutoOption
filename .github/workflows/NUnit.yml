@@ -25,4 +25,4 @@ jobs:
       run: msbuild AutoOption.sln
       
     - name: Unit Tests
-      run: dotnet test test/AutoOption.Tests --no-restore --verbosity Minimal  
+      run: dotnet test test/AutoOption.Tests/AutoOption.Tests.csproj --no-restore --verbosity Minimal  
