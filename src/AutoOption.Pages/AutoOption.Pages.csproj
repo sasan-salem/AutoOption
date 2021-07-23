@@ -6,7 +6,11 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Version>1.0.2</Version>
     <Authors>Sasan Salem</Authors>
-    <Company>https://github.com/sasan-salem/AutoOption</Company>
+    <Company>Sasan Salem</Company>
+    <Description>A simple library to generate option page for websites</Description>
+    <PackageIcon>icon.jpg</PackageIcon>
+    <RepositoryUrl>https://github.com/sasan-salem/AutoOption</RepositoryUrl>
+    <PackageTags>Option, Options, Setting, Settings</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,6 +19,13 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AutoOption\AutoOption.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\asset\icon.jpg">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
   
 

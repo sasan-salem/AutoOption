@@ -5,7 +5,11 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Version>1.0.2</Version>
     <Authors>Sasan Salem</Authors>
-    <Company>https://github.com/sasan-salem/AutoOption</Company>
+    <Company>Sasan Salem</Company>
+    <Description>A simple library to generate option page for websites</Description>
+    <RepositoryUrl>https://github.com/sasan-salem/AutoOption</RepositoryUrl>
+    <PackageTags>Option, Options, Setting, Settings</PackageTags>
+    <PackageIcon>icon.jpg</PackageIcon>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -24,6 +28,13 @@
 
   <ItemGroup>
     <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\asset\icon.jpg">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
